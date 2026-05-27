@@ -41,6 +41,12 @@ export function cipher(msg, key) {
   return encMsg;
 }
 
-export function analyze() {
-  
+export function analyze(...numbers) {
+  const arr = numbers;
+  return {
+    average: numbers.reduce((a, b) => a + b, 0) / numbers.length,
+    min: Math.min(...arr),
+    max: Math.max(...arr),
+    length: arr.length,
+  }
 }

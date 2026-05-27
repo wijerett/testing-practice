@@ -2,12 +2,12 @@ import { capitalize } from "./assignment.js";
 import { reverse } from "./assignment.js";
 import { calculator } from "./assignment.js";
 import { cipher } from "./assignment.js";
-
+import { analyze } from "./assignment.js";
 
 
 const capital = capitalize();
 const backward = reverse();
-//const caesar = cipher();
+
 
 test('is capital', () => {
   expect(capital).toMatch('Hello odinites');
@@ -29,3 +29,11 @@ test('deciphered message', () => {
   const result = cipher('HeLLo', 3)
   expect(result).toMatch('KhOOr');
 });
+
+test('analyze array', () => {
+  const result = analyze(1,8,3,4,2,6);
+  expect(result.average).toBe(4);
+  expect(result.min).toBe(1);
+  expect(result.max).toBe(8);
+  expect(result.length).toBe(6);
+})
