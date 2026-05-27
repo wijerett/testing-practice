@@ -22,44 +22,25 @@ export function calculator(a, b) {
   };
 };
 
-
-//take input letter convert to integer, add amount, then convert back
-//to letter
-
-const alphabet = {
-  "a": 1,
-  "b": 2,
-  "c": 3,
-  "d": 4,
-  "e": 5,
-  "f": 6,
-  "g": 7,
-  "h": 8,
-  "i": 9,
-  "j": 10,
-  "k": 11,
-  "l": 12,
-  "m": 13,
-  "n": 14,
-  "o": 15,
-  "p": 16,
-  "q": 17,
-  "r": 18,
-  "s": 19,
-  "t": 20,
-  "u": 21,
-  "v": 22,
-  "w": 23,
-  "x": 24,
-  "y": 25,
-  "z": 26
+function modulo(n, p) {
+  return ((n % p) + p) % p;
 }
 
-function convertToI() {
-  
+export function cipher(msg, key) {
+  var encMsg = "";
+  for(var i = 0; i < msg.length; i++) {
+    var code = msg.charCodeAt(i);
+    if (code >= 65 && code <= 90) {
+      code = modulo(code - 65 + key, 26) + 65;
+    } 
+    else if (code >= 97 && code <= 122) {
+    code = modulo(code - 97 + key, 26) + 97;
+    }
+    encMsg += String.fromCharCode(code);
+  }
+  return encMsg;
 }
 
-
-export function cipher() {
+export function analyze() {
   
 }
